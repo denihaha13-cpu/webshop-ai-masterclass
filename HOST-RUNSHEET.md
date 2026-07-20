@@ -16,6 +16,7 @@ De deelnemers worden door Claude geleid via `/webshop:masterclass` — zij bouwe
    - Eventueel 1-2 skill-demos voorbereid (`/webshop:klantenhulp`, `/webshop:static-ad`).
 4. **Stuur de pre-flight mail** (hieronder) een paar uur van tevoren.
 5. **Moderator** in de chat voor setup-hulp (of pauzeer bij BLOK 1 tot iedereen groen is).
+6. **Open de call 5 min vóór 0:00** (pre-roll): laat stragglers de installer draaien terwijl je de belofte al warm draait. Zo start je klok op 0:00 met een volle, groene zaal — de setup vreet dan geen leszijd.
 
 > ℹ️ **Deelnemers hebben géén Python/Obsidian nodig.** Zij bouwen alleen het brein (dat draait 100% in Claude Code). De graphify-kaart en Obsidian zijn jóuw scherm-demo. Dat houdt het beginner-proof.
 
@@ -48,10 +49,23 @@ De deelnemers worden door Claude geleid via `/webshop:masterclass` — zij bouwe
 | **0:04–0:09** | 🔧 Setup | Iedereen groen krijgen (versie-check + map). Je enige risico-blok — neem de tijd. | Map `webshop-brein/` aanmaken |
 | **0:09–0:17** | 🧠 STAP 1: brein | Moedig eerlijke, concrete antwoorden aan op de 5 vragen. | Bouwt CLAUDE.md + wiki-structuur |
 | **0:17–0:32** | 📥 Hoofdgerecht | **Het langste blok.** Laat ze producten/beleid/stem plakken; loop rond. Vier het aantal pagina's. | Ingest: shop → wiki-pagina's |
-| **0:32–0:39** | 🌐 Brein-kaart | **JOUW SCHERM:** run `/graphify wiki` → open `graph.html` (de wow). Toon daarna je second-brain in Obsidian's graph-view. | Kijkt mee; zijn brein staat klaar |
-| **0:39–0:45** | 🎁 Cadeaus + CTA | Toon de 16 skills. Draai 1-2 outputs live (`/webshop:klantenhulp`, `/webshop:static-ad`). Visie + CTA → lio.circle.so. | Ziet z'n cadeau-menu |
+| **0:32–0:38** | 🌐 Brein-kaart | **JOUW SCHERM:** run `/graphify wiki` → open `graph.html` (de wow). Toon daarna je second-brain in Obsidian's graph-view. | Kijkt mee; zijn brein staat klaar |
+| **0:38–0:45** | 🎁 Cadeaus + CTA | Toon de 16 skills. Draai 1-2 outputs live (`/webshop:klantenhulp`, `/webshop:static-ad`). Visie + CTA → lio.circle.so. | Ziet z'n cadeau-menu |
 
-**Buffer:** loopt het uit? Kort BLOK 5 in. De ingest (0:17–0:32) is de kern — daar mag de tijd heen.
+### ⏱️ Pace-gates — waar je moet zijn (check je klok, stuur bij)
+
+- **0:09** — iedereen groen: in Claude Code + map `webshop-brein/` staat. Nog niet? Blíjf hier — dit is je enige echte risico-blok.
+- **0:17** — iedereen heeft z'n `CLAUDE.md` opgeslagen. Achter? Versnel de 5 vragen: "kort antwoord is prima, je vult later aan."
+- **0:32** — iedereen heeft ≥3 wiki-pagina's (`find webshop-brein/wiki -name "*.md" | wc -l`). Achter? Door naar de kaart — de rest van de ingest doen ze zelf.
+- **0:38** — kaart-demo klaar, je begint aan de cadeaus. **Bescherm de laatste 7 min: de skills + CTA zijn het doel.**
+
+### 🧯 Loop je uit? Comprimeer in deze volgorde — nooit de CTA
+
+1. **Ingest inkorten** (BLOK 3): doe maar 1 van de 3 stukken live (producten). Zeg: "beleid + merkstem plak je straks zelf, precies zó." → bespaart 5-7 min.
+2. **Kaart-demo verkorten** (BLOK 4): toon alleen de kant-en-klare `demo-brein/graphify-out/graph.html`, sla Obsidian over. → bespaart 2-3 min.
+3. **Live skill-demo's schrappen** (BLOK 5): toon de cadeaubox, sla de live outputs over — maar hou de visie + CTA.
+
+> **Nooit inkorten:** de belofte (BLOK 0) en de CTA → lio.circle.so (eind BLOK 5). Dát is waarom je dit gratis geeft. De ingest (0:17–0:32) blijft de kern — daar mag de tijd heen, maar niet ten koste van de laatste 7 min.
 
 ---
 

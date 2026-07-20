@@ -55,8 +55,8 @@ Elke skill leest het brein → alles klinkt vanzelf als hún shop.
 | 0:04–0:09 | 🔧 Binnenkomen (setup) |
 | 0:09–0:17 | 🧠 STAP 1 — brein opzetten (scaffold) |
 | 0:17–0:32 | 📥 Je shop erin (ingest — het hoofdgerecht) |
-| 0:32–0:39 | 🌐 De brein-kaart (Leon's scherm-demo) |
-| 0:39–0:45 | 🎁 Skills tonen + value bomb cadeau + CTA |
+| 0:32–0:38 | 🌐 De brein-kaart (Leon's scherm-demo) |
+| 0:38–0:45 | 🎁 Skills tonen + value bomb cadeau + CTA |
 
 Volledig presentator-draaiboek + pre-flight mail + vangnetten → `HOST-RUNSHEET.md`.
 

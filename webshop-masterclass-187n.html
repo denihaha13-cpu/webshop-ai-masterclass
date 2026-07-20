@@ -15,6 +15,8 @@
     --line: rgba(28,28,28,0.12); --line-2: rgba(28,28,28,0.20);
     --coral: #FF6301; --coral-2: #FF8F4D; --coral-soft: #FF8F6B; --coral-glow: rgba(255,99,1,0.22);
     --grad: linear-gradient(110deg, #FF6301, #FF8F4D);
+    /* brein-kaart clusters — ingetogen earthy tinten naast coral (coral blijft exclusief de shop) */
+    --c-prod: #C79A3A; --c-brand: #B15A3C; --c-policy: #566A73; --c-cust: #77803F;
     /* op de near-black band */
     --near: #1C1C1C; --near-2: #232323; --near-ink: #F6F6F5; --near-muted: rgba(246,246,245,0.60); --near-line: rgba(246,246,245,0.14);
   }
@@ -126,8 +128,9 @@
   .dept-head .dept-tag { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 14px; color: var(--muted); flex-shrink: 0; }
   @media (max-width: 560px){ .dept-head .dept-tag { display: none; } }
   .dept-head::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, color-mix(in oklab, var(--coral) 55%, var(--line)), transparent); margin-left: 4px; }
-  .dept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 13px; }
-  .cap-card { position: relative; background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px; min-height: 138px; transition: border-color .25s, transform .25s, box-shadow .25s; }
+  .dept-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 13px; }
+  @media (max-width: 520px){ .cap-card { flex-basis: 100%; max-width: none; } }
+  .cap-card { flex: 1 1 215px; max-width: 262px; position: relative; background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px; min-height: 138px; transition: border-color .25s, transform .25s, box-shadow .25s; }
   .cap-card:hover { transform: translateY(-4px); border-color: color-mix(in oklab, var(--coral) 55%, var(--line)); box-shadow: 0 16px 40px -22px var(--coral-glow); }
   .cap-ico { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 22px; background: var(--cream); border: 1px solid var(--line); }
   .cap-card:hover .cap-ico { animation: floaty 1.4s ease-in-out infinite; }
@@ -168,6 +171,10 @@
   .brain-graph .node circle { fill: var(--ink); stroke: var(--white); stroke-width: 2; }
   .brain-graph .node text { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--muted); text-anchor: middle; }
   .brain-graph .n-shop circle { fill: var(--coral); }
+  .brain-graph .n-prod circle { fill: var(--c-prod); }
+  .brain-graph .n-brand circle { fill: var(--c-brand); }
+  .brain-graph .n-policy circle { fill: var(--c-policy); }
+  .brain-graph .n-cust circle { fill: var(--c-cust); }
   .brain-graph .n-shop text { fill: var(--ink); font-weight: 700; font-size: 12.5px; }
   .brain-graph .n-shop .halo { fill: var(--coral); opacity: 0.28; transform-box: fill-box; transform-origin: center; animation: halo 2.6s ease-in-out infinite; }
   @keyframes halo { 0%,100% { transform: scale(1); opacity: 0.28; } 50% { transform: scale(1.9); opacity: 0; } }
@@ -178,6 +185,10 @@
   .graph-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 8px; }
   .graph-legend .lg { display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
   .graph-legend .lg::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--ink); }
+  .graph-legend .lg-prod::before { background: var(--c-prod); }
+  .graph-legend .lg-brand::before { background: var(--c-brand); }
+  .graph-legend .lg-policy::before { background: var(--c-policy); }
+  .graph-legend .lg-cust::before { background: var(--c-cust); }
   .graph-legend .lg-shop::before { background: var(--coral); }
 </style>
 </head>
@@ -233,27 +244,27 @@
         <div class="tl-card"><div class="h"><span class="em">🎬</span><h4>Welkom + de belofte</h4></div><p>Wat je vanavond bouwt: het brein van je webshop.</p></div>
       </div>
       <div class="tl-item">
-        <div class="tl-time">0:05</div>
+        <div class="tl-time">0:04</div>
         <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
         <div class="tl-card"><div class="h"><span class="em">🔧</span><h4>Even zorgen dat je binnen bent</h4></div><p>Samen Claude Code openen. Het enige technische stukje — we doen het samen.</p></div>
       </div>
       <div class="tl-item">
-        <div class="tl-time">0:10</div>
+        <div class="tl-time">0:09</div>
         <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
         <div class="tl-card"><div class="h"><span class="em">🧠</span><h4>Je brein opzetten</h4><span class="step1">Stap 1</span></div><p>De structuur van je kennisbank — in een paar minuten klaar, zonder gedoe.</p></div>
       </div>
       <div class="tl-item">
-        <div class="tl-time">0:15</div>
+        <div class="tl-time">0:17</div>
         <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
         <div class="tl-card"><div class="h"><span class="em">📥</span><h4>Je shop erin</h4><span class="step1" style="background:var(--near)">Hoofdgerecht</span></div><p>Producten, beleid, jouw stem → je AI leert je hele shop kennen. Hier zit de tijd.</p></div>
       </div>
       <div class="tl-item">
-        <div class="tl-time">0:33</div>
+        <div class="tl-time">0:32</div>
         <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
         <div class="tl-card"><div class="h"><span class="em">🌐</span><h4>De brein-kaart</h4></div><p>Je hele shop wordt een levende, visuele kaart. Dit laat ik je live zien.</p></div>
       </div>
       <div class="tl-item">
-        <div class="tl-time">0:40</div>
+        <div class="tl-time">0:38</div>
         <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
         <div class="tl-card"><div class="h"><span class="em">🎁</span><h4>Wat het ontgrendelt + cadeaus</h4></div><p>De skills die je AI maakt — ads, teksten, mails — en jouw value-bomb cadeau.</p></div>
       </div>
