@@ -89,6 +89,7 @@ Allemaal in de `/webshop:` verzameling. Elke skill leest je brein — dus alles 
 
 ## Links
 
+- Boek een 187N Agency Scan (wij bouwen je AI-operator) → https://calendly.com/lio-187n/187n-agency-scan-t-clone
 - Volledige Claude Code cursus & community → https://lio.circle.so
 - Instagram: [@lio](https://instagram.com/lio) · [@liogpt](https://instagram.com/liogpt) · [@187n](https://instagram.com/187n)
 

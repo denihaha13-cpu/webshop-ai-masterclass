@@ -50,7 +50,7 @@ De deelnemers worden door Claude geleid via `/webshop:masterclass` — zij bouwe
 | **0:09–0:17** | 🧠 STAP 1: brein | Moedig eerlijke, concrete antwoorden aan op de 5 vragen. | Bouwt CLAUDE.md + wiki-structuur |
 | **0:17–0:32** | 📥 Hoofdgerecht | **Het langste blok.** Laat ze producten/beleid/stem plakken; loop rond. Vier het aantal pagina's. | Ingest: shop → wiki-pagina's |
 | **0:32–0:38** | 🌐 Brein-kaart | **JOUW SCHERM:** run `/graphify wiki` → open `graph.html` (de wow). Toon daarna je second-brain in Obsidian's graph-view. | Kijkt mee; zijn brein staat klaar |
-| **0:38–0:45** | 🎁 Cadeaus + CTA | Toon de 16 skills. Draai 1-2 outputs live (`/webshop:klantenhulp`, `/webshop:static-ad`). Visie + CTA → lio.circle.so. | Ziet z'n cadeau-menu |
+| **0:38–0:45** | 🎁 Cadeaus + CTA | Toon de 16 skills. Draai 1-2 outputs live (`/webshop:klantenhulp`, `/webshop:static-ad`). Visie + CTA: **boek de 187N Agency Scan** (calendly) → cursus lio.circle.so als 2e optie. | Ziet z'n cadeau-menu |
 
 ### ⏱️ Pace-gates — waar je moet zijn (check je klok, stuur bij)
 
@@ -65,7 +65,7 @@ De deelnemers worden door Claude geleid via `/webshop:masterclass` — zij bouwe
 2. **Kaart-demo verkorten** (BLOK 4): toon alleen de kant-en-klare `demo-brein/graphify-out/graph.html`, sla Obsidian over. → bespaart 2-3 min.
 3. **Live skill-demo's schrappen** (BLOK 5): toon de cadeaubox, sla de live outputs over — maar hou de visie + CTA.
 
-> **Nooit inkorten:** de belofte (BLOK 0) en de CTA → lio.circle.so (eind BLOK 5). Dát is waarom je dit gratis geeft. De ingest (0:17–0:32) blijft de kern — daar mag de tijd heen, maar niet ten koste van de laatste 7 min.
+> **Nooit inkorten:** de belofte (BLOK 0) en de CTA (eind BLOK 5) — **boek de 187N Agency Scan** (`calendly.com/lio-187n/187n-agency-scan-t-clone`), met de cursus (lio.circle.so) als tweede optie. Dát is waarom je dit gratis geeft. De ingest (0:17–0:32) blijft de kern — daar mag de tijd heen, maar niet ten koste van de laatste 7 min.
 
 ---
 
@@ -100,4 +100,4 @@ Daarna: wissel naar Obsidian → open je eigen second-brain in de graph-view →
 - Start-commando deelnemer: `/webshop:masterclass` · welkomstscherm: `/webshop:start`
 - Brein van de deelnemer: map `webshop-brein/` (CLAUDE.md + `wiki/`)
 - Skills: `~/.claude/commands/webshop/` (16 stuks)
-- Cursus-CTA: https://lio.circle.so · @lio · @liogpt · @187n
+- Primaire CTA (boeking): https://calendly.com/lio-187n/187n-agency-scan-t-clone · Cursus: https://lio.circle.so · @lio · @liogpt · @187n
