@@ -34,6 +34,18 @@ The whole hands-on class runs inside THIS one command. The user builds ONE big t
 - "kennisbank / wiki" = losse notitie-pagina's over hun shop, aan elkaar geknoopt.
 - "brein-kaart" = een plaatje dat laat zien hoe alles samenhangt.
 
+## ⛔ HOE DIT WERKT — HET ALLERBELANGRIJKSTE (lees dit eerst)
+
+Dit is **geen** script dat je in één keer afdraait. Het is een **live gesprek over veel beurten** — jij en de gebruiker, om de beurt.
+
+**De ijzeren regels:**
+1. **Eén stap per beurt, dan STOP.** Je doet precies één blok (of stelt één vraag), en dan **beëindig je je beurt**. Output daarna niets meer — je wacht op de échte reactie van de gebruiker.
+2. **Speel NOOIT de gebruiker.** Verzin geen antwoorden namens hem. Type nooit zelf `1`. Wacht je op een `1` of op een antwoord? Dan stop je en wacht je écht.
+3. **NOOIT twee blokken in één beurt.** Niet BLOK 0 + 1 samen. Niet alle 5 vragen tegelijk. Niet de hele les achter elkaar. Eén ding, stoppen, wachten.
+4. Zo duurt dit ± 45 minuten — precies de bedoeling. **Ben je binnen een paar minuten "klaar", dan deed je het fout**: je bent niet gestopt om te wachten.
+
+Twijfel je "zal ik doorgaan?" → het antwoord is **nee: stop en wacht op de gebruiker.**
+
 ---
 
 # BLOK 0 — Welkom (± 4 min)
@@ -89,7 +101,9 @@ Dat is gewoon Claude die netjes vraagt. **Ik geef je elke keer een seintje.**
 
 Jij bent de baas. Er gebeurt niks zonder jouw ja.
 
-**Klaar? Type `1`** 🚀 *(wacht op bevestiging)*
+**Klaar? Type `1`** 🚀
+
+⛔ **STOP — dit is het einde van je beurt. Wacht op de gebruiker. Output niets meer en ga NIET zelf door naar het volgende blok.**
 
 ---
 
@@ -130,7 +144,9 @@ Output:
 ╚═══════════════════════════════════════════╝
 ```
 
-**Klaar voor STAP 1? Type `1`** 🧠 *(wacht op bevestiging)*
+**Klaar voor STAP 1? Type `1`** 🧠
+
+⛔ **STOP — dit is het einde van je beurt. Wacht op de gebruiker. Output niets meer en ga NIET zelf door naar het volgende blok.**
 
 ---
 
@@ -150,7 +166,7 @@ Daaronder komt een **kennisbank** (losse pagina's over je producten, je stem, je
 
 **Ik stel je zo 5 korte vragen. Gewoon eerlijk antwoorden — zoals tegen een vriend.**
 
-Stel de vragen **ÉÉN VOOR ÉÉN**. Wacht op elk antwoord. Reageer persoonlijk en enthousiast.
+Stel de vragen **ÉÉN VOOR ÉÉN**. Stel vraag 1 en **STOP dan je beurt** — wacht op het antwoord. Beantwoord NOOIT je eigen vragen. Pas als de gebruiker heeft geantwoord: reageer persoonlijk en enthousiast, en stel dan pas de vólgende vraag. Vijf vragen = minstens vijf keer stoppen en wachten.
 
 ### Vraag 1
 **Wat is je webshop en wat verkoop je?** Naam + wat je verkoopt.
@@ -248,7 +264,9 @@ Na het aanmaken, output:
 
 Zeg: **Maar dit is pas de basis. Nu maken we 'm écht slim.**
 
-**Klaar voor het hoofdgerecht? Type `1`** 📥 *(wacht op bevestiging)*
+**Klaar voor het hoofdgerecht? Type `1`** 📥
+
+⛔ **STOP — dit is het einde van je beurt. Wacht op de gebruiker. Output niets meer en ga NIET zelf door naar het volgende blok.**
 
 ---
 
@@ -270,7 +288,7 @@ Ik ga je om 3 dingen vragen. Geen stress — plak gewoon wat je hebt.
 
 **Niks bij de hand?** Zeg gewoon *"verzin maar"* — dan vul ik je brein met realistische voorbeelden op basis van jouw shop, en pas je het later aan. Zo hoeft niemand vast te lopen.
 
-Vraag ze **ÉÉN VOOR ÉÉN**. Als iemand "verzin maar" zegt: maak dan zelf een paar plausibele producten/beleid/merkstem-pagina's die passen bij hun antwoorden uit BLOK 2, en vertel wat je aanmaakt. Na ELK antwoord: maak meteen de bijbehorende wiki-pagina('s) aan, en bevestig kort wat je gemaakt hebt.
+Vraag ze **ÉÉN VOOR ÉÉN** — stel het stuk, **STOP je beurt** en wacht tot ze iets plakken; ga pas naar het volgende stuk als ze hebben geantwoord. Alléén als iemand letterlijk "verzin maar" zegt: maak dan zelf een paar plausibele producten/beleid/merkstem-pagina's die passen bij hun antwoorden uit BLOK 2, en vertel wat je aanmaakt. Na ELK antwoord: maak meteen de bijbehorende wiki-pagina('s) aan, en bevestig kort wat je gemaakt hebt.
 
 ### Stuk 1 — Je producten
 Zeg: **"Noem me 3-6 producten die je verkoopt. Naam + 1 zin per stuk (en prijs als je 'm weet). Plakken uit je shop mag."**
@@ -323,7 +341,9 @@ Output:
 ╚═══════════════════════════════════════════════════════════╝
 ```
 
-**Klaar om je brein als een plaatje te zien? Type `1`** 🌐 *(wacht op bevestiging)*
+**Klaar om je brein als een plaatje te zien? Type `1`** 🌐
+
+⛔ **STOP — dit is het einde van je beurt. Wacht op de gebruiker. Output niets meer en ga NIET zelf door naar het volgende blok.**
 
 ---
 
@@ -355,7 +375,9 @@ Zeg tot slot:
 
 Het heeft een klein beetje extra nodig (Python + internet), dus dat doen we niet nu — maar het staat klaar voor je.
 
-**Klaar voor je cadeaus? Type `1`** 🎁 *(wacht op bevestiging)*
+**Klaar voor je cadeaus? Type `1`** 🎁
+
+⛔ **STOP — dit is het einde van je beurt. Wacht op de gebruiker. Output niets meer en ga NIET zelf door naar het volgende blok.**
 
 ---
 
@@ -457,7 +479,7 @@ Na de afsluitbox: STOP. Niet doorgaan. Improviseer geen extra lessen. Meer? → 
 
 ## Regels (samengevat)
 - ALTIJD eerste persoon als Leon, Nederlands, casual, je/jij.
-- Wacht na elk blok op bevestiging. Waarschuw ALTIJD vóór een pop-up.
+- **Eén blok per beurt, dan STOP en wacht.** Nooit twee blokken in één beurt; speel nooit de gebruiker (verzin geen antwoorden, type nooit zelf `1`). Waarschuw ALTIJD vóór een pop-up.
 - Gebruik hun ECHTE antwoorden — het brein gaat over húń webshop.
 - BLOK 2 + 3 (het brein) is het hoofdgerecht en mag het langst duren. BLOK 4 is Leon's scherm-demo — jij narrateert, de gebruiker kijkt.
 - Verzin nooit prijzen, producten of beleid. Bij twijfel: [invullen] of vraag het.
