@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LIO Masterclass · Jouw AI-medewerker voor je webshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,wght@1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070810; --card: #0f1119; --card-2: #131623; --ui: #171a27; --ui-2: #1b1e2c;
+    --border: #242838; --border-2: #2e3244;
+    --text: #f4f4f5; --muted: #a1a1aa; --dim: #6b7280; --faint: #4b5563;
+    --claude: #2845ff; --claude-2: #6d84ff; --claude-glow: rgba(40,69,255,0.35);
+    --amber: #f0b441; --gold: #facc15; --green-2: #4ade80; --red: #ef4444;
+    --p1:#818cf8; --p2:#38bdf8; --p3:#22d3ee; --p4:#2dd4bf; --p5:#a78bfa; --p6:#60a5fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; position: relative; }
+  body::after { content: ''; position: fixed; inset: 0; background: radial-gradient(900px at 12% 4%, rgba(40,69,255,0.13), transparent 60%), radial-gradient(760px at 88% 90%, rgba(240,180,65,0.08), transparent 60%); pointer-events: none; z-index: 0; }
+
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  @keyframes shimmerText { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+  @keyframes travel { 0% { top: -12px; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { top: calc(100% + 12px); opacity: 0; } }
+  @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
+  .wrap { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 30px 32px 100px; }
+
+  /* Brand bar */
+  .brandbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 20px; margin-bottom: 34px; background: rgba(15,17,25,0.7); border: 1px solid var(--border); border-radius: 14px; backdrop-filter: blur(10px); }
+  .brandbar .lio { display: inline-flex; align-items: center; gap: 12px; }
+  .brandbar .mark { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 16px; letter-spacing: 0.06em; color: var(--text); border: 1px solid var(--border-2); border-radius: 8px; padding: 5px 11px; background: var(--card-2); }
+  .brandbar .mark b { color: var(--claude-2); }
+  .brandbar .tagline { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+  .brandbar .cross { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 400; color: var(--dim); margin: 0 3px; }
+  .brandbar .brand-187n { height: 26px; width: auto; display: block; }
+  .brandbar .live { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); border: 1px solid color-mix(in oklab, var(--amber) 40%, transparent); background: rgba(240,180,65,0.08); border-radius: 100px; padding: 6px 13px; }
+  .brandbar .live .d { width: 7px; height: 7px; border-radius: 50%; background: var(--amber); animation: pulse 1.6s infinite; box-shadow: 0 0 10px var(--amber); }
+
+  /* Hero */
+  .hero { text-align: center; margin-bottom: 20px; animation: fadeInUp 0.9s ease-out; }
+  .asciimark { font-family: 'JetBrains Mono', monospace; font-size: clamp(7px, 1.4vw, 11px); line-height: 1.15; color: var(--claude-2); white-space: pre; display: inline-block; margin-bottom: 20px; text-shadow: 0 0 24px var(--claude-glow); opacity: 0.92; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--claude-2); }
+  .eyebrow .l { width: 34px; height: 1px; background: linear-gradient(90deg, transparent, var(--claude-2)); }
+  .eyebrow .r { width: 34px; height: 1px; background: linear-gradient(90deg, var(--claude-2), transparent); }
+  .hero h1 { font-size: clamp(40px, 7.4vw, 84px); font-weight: 900; letter-spacing: -0.045em; line-height: 0.98; background: linear-gradient(135deg, #ffffff 0%, var(--claude-2) 55%, var(--claude) 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shimmerText 6s linear infinite; }
+  .hero h1 em { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; -webkit-text-fill-color: initial; color: var(--amber); }
+  .hero .sub { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(17px, 2.2vw, 24px); color: var(--muted); margin: 20px auto 0; max-width: 660px; }
+  .hero-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
+  .chip { display: inline-flex; align-items: center; gap: 9px; padding: 9px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--text); }
+  .chip .d { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* Promise band */
+  .promise { max-width: 900px; margin: 44px auto 0; text-align: center; background: linear-gradient(120deg, color-mix(in oklab, var(--claude) 12%, var(--card-2)), var(--card)); border: 1px solid color-mix(in oklab, var(--claude) 30%, var(--border)); border-radius: 20px; padding: 34px 32px; }
+  .promise .tag { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--claude-2); margin-bottom: 12px; }
+  .promise p { font-size: clamp(19px, 2.6vw, 27px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; }
+  .promise p em { font-family: 'Newsreader', serif; font-style: italic; font-weight: 600; color: var(--amber); }
+
+  /* Section head */
+  .stage { max-width: 1080px; margin: 0 auto; scroll-margin-top: 40px; opacity: 0; transform: translateY(24px); }
+  .stage.in-view { animation: fadeInUp 0.7s cubic-bezier(0.2,0.8,0.2,1) forwards; }
+  .section-head { text-align: center; margin: 74px auto 34px; }
+  .section-tag { display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .section-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  .section-h { font-size: clamp(29px, 4.2vw, 48px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+  .section-h em { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; color: var(--accent); }
+  .section-sub { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(16px, 1.9vw, 20px); color: var(--muted); margin: 13px auto 0; max-width: 640px; }
+
+  /* Timeline (programma) */
+  .timeline { max-width: 740px; margin: 0 auto; }
+  .tl-item { display: grid; grid-template-columns: 52px 20px 1fr; gap: 16px; align-items: stretch; }
+  @media (max-width: 520px){ .tl-item { grid-template-columns: 42px 18px 1fr; gap: 11px; } }
+  .tl-time { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: var(--dim); text-align: right; padding-top: 21px; }
+  .tl-mid { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .tl-dot { width: 15px; height: 15px; border-radius: 50%; background: var(--card); border: 2px solid var(--tc); box-shadow: 0 0 12px color-mix(in oklab, var(--tc) 60%, transparent); margin-top: 24px; flex-shrink: 0; z-index: 2; }
+  .tl-line { width: 2px; flex: 1; background: linear-gradient(180deg, var(--tc), var(--border)); margin: 2px 0 -2px; opacity: 0.5; }
+  .tl-item:last-child .tl-line { display: none; }
+  .tl-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 17px 20px; margin-bottom: 14px; transition: border-color .2s, transform .2s; }
+  .tl-card:hover { transform: translateX(3px); border-color: color-mix(in oklab, var(--tc) 55%, var(--border)); }
+  .tl-card .h { display: flex; align-items: center; gap: 11px; }
+  .tl-card .em { font-size: 22px; line-height: 1; }
+  .tl-card h4 { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+  .tl-card .step1 { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bg); background: var(--amber); border-radius: 100px; padding: 3px 8px; margin-left: auto; }
+  .tl-card p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  /* Architecture split */
+  .split { display: grid; grid-template-columns: 1fr 1.02fr; gap: 44px; align-items: center; max-width: 1000px; margin: 0 auto; }
+  @media (max-width: 860px){ .split { grid-template-columns: 1fr; gap: 30px; } }
+  .split .micro { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); padding: 6px 12px; background: rgba(0,0,0,0.4); border: 1px solid color-mix(in oklab, var(--accent) 38%, transparent); border-radius: 100px; margin-bottom: 16px; }
+  .split .micro .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  .split h3 { font-size: clamp(24px, 3.2vw, 34px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 14px; }
+  .split h3 em { font-family: 'Newsreader', serif; font-style: italic; font-weight: 600; color: var(--accent); }
+  .split p.lead { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+  .split .arch-row { display: flex; align-items: center; gap: 12px; margin-top: 18px; }
+  .split .arch-row .b { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--text); padding: 8px 14px; background: var(--ui); border: 1px solid var(--border); border-radius: 10px; }
+  .split .arch-row .ar { color: var(--accent); font-size: 18px; }
+
+  /* file-mock */
+  .file-mock { width: 100%; max-width: 460px; margin: 0 auto; background: var(--card-2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; font-family: 'JetBrains Mono', monospace; box-shadow: 0 30px 70px -34px rgba(0,0,0,0.8); }
+  .file-mock .head { display: flex; align-items: center; gap: 8px; padding: 11px 15px; background: var(--ui); border-bottom: 1px solid var(--border); font-size: 11px; color: var(--dim); }
+  .file-mock .dots { display: flex; gap: 6px; } .file-mock .dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--border-2); }
+  .file-mock .fname { margin-left: 4px; }
+  .file-mock .body { padding: 18px; font-size: 12.5px; line-height: 1.95; }
+  .file-mock .ln { color: var(--muted); }
+  .file-mock .key { color: var(--claude-2); }
+  .file-mock .cm { color: var(--faint); }
+  .file-mock .hl { background: rgba(240,180,65,0.16); color: var(--amber); padding: 1px 5px; border-radius: 4px; }
+  .file-mock .hl.cursor::after { content: '|'; color: var(--amber); animation: blink 1.1s infinite; margin-left: 1px; }
+
+  /* Skills grid */
+  .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; max-width: 1000px; margin: 0 auto; }
+  @media (max-width: 820px){ .cap-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px){ .cap-grid { grid-template-columns: 1fr; } }
+  .cap-card { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px; min-height: 138px; transition: border-color .25s, transform .25s, box-shadow .25s; }
+  .cap-card:hover { transform: translateY(-4px); border-color: color-mix(in oklab, var(--cc) 60%, var(--border)); box-shadow: 0 16px 40px -20px color-mix(in oklab, var(--cc) 55%, transparent); }
+  .cap-ico { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 22px; background: color-mix(in oklab, var(--cc) 14%, transparent); border: 1px solid color-mix(in oklab, var(--cc) 32%, transparent); }
+  .cap-card:hover .cap-ico { animation: floaty 1.4s ease-in-out infinite; }
+  .cap-card .cmd { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: var(--text); }
+  .cap-card p { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+  .cap-card .badge { position: absolute; top: 14px; right: 14px; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bg); background: var(--gold); border-radius: 100px; padding: 3px 8px; }
+
+  /* Departments */
+  .dept { max-width: 1000px; margin: 0 auto 30px; }
+  .dept-head { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+  .dept-ico { width: 40px; height: 40px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 21px; background: color-mix(in oklab, var(--dc) 16%, transparent); border: 1px solid color-mix(in oklab, var(--dc) 38%, transparent); flex-shrink: 0; }
+  .dept-head h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.015em; flex-shrink: 0; }
+  .dept-head .dept-tag { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 14px; color: var(--muted); flex-shrink: 0; }
+  @media (max-width: 560px){ .dept-head .dept-tag { display: none; } }
+  .dept-head::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, color-mix(in oklab, var(--dc) 45%, var(--border)), transparent); margin-left: 4px; }
+  .dept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 13px; --cc: var(--dc); }
+
+  /* Install terminal */
+  .term { max-width: 780px; margin: 0 auto; background: #05060d; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; font-family: 'JetBrains Mono', monospace; box-shadow: 0 30px 80px -40px rgba(0,0,0,0.9); }
+  .term .head { display: flex; align-items: center; gap: 8px; padding: 11px 15px; background: var(--ui); border-bottom: 1px solid var(--border); font-size: 11px; color: var(--dim); }
+  .term .head .dots { display: flex; gap: 6px; } .term .head .dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--border-2); }
+  .term .body { padding: 20px; font-size: 12.5px; line-height: 1.8; }
+  .term .step-lbl { color: var(--claude-2); font-weight: 700; margin: 4px 0 6px; }
+  .term .step-lbl:not(:first-child) { margin-top: 20px; }
+  .term .cmd { color: var(--text); }
+  .term .cmd .p { color: var(--green-2); } .term .cmd .c { color: var(--amber); }
+  .term .note { color: var(--faint); font-size: 11.5px; }
+
+  /* CTA */
+  .cta { max-width: 900px; margin: 74px auto 0; text-align: center; background: linear-gradient(160deg, var(--card-2), var(--card)); border: 1px solid color-mix(in oklab, var(--claude) 30%, var(--border)); border-radius: 22px; padding: 48px 32px; position: relative; overflow: hidden; }
+  .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(600px at 50% 0%, rgba(40,69,255,0.14), transparent 60%); pointer-events: none; }
+  .cta h2 { font-size: clamp(26px, 4vw, 42px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; position: relative; }
+  .cta h2 em { font-family: 'Newsreader', serif; font-style: italic; color: var(--amber); }
+  .cta p { color: var(--muted); font-size: 16px; margin: 14px auto 26px; max-width: 520px; position: relative; }
+  .cta .go { display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px; background: var(--claude); color: #fff; font-weight: 700; font-size: 16px; font-family: 'JetBrains Mono', monospace; border-radius: 100px; text-decoration: none; position: relative; box-shadow: 0 12px 40px -12px var(--claude-glow); transition: transform .2s; }
+  .cta .go:hover { transform: translateY(-2px); }
+  .cta .socials { margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--dim); letter-spacing: 0.06em; position: relative; }
+  .cta .socials b { color: var(--claude-2); }
+
+  .foot { text-align: center; margin-top: 56px; color: var(--dim); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; }
+
+  .connector { position: relative; width: 2px; height: 60px; margin: 6px auto; background: linear-gradient(180deg, transparent, var(--border-2) 30%, var(--border-2) 70%, transparent); overflow: visible; }
+  .connector .travel { position: absolute; left: 50%; transform: translateX(-50%); width: 7px; height: 7px; border-radius: 50%; background: var(--from); box-shadow: 0 0 12px 2px var(--from); animation: travel 3.4s linear infinite; }
+
+  /* Brein-kaart showcase */
+  .graph-wrap { max-width: 840px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 22px 18px 16px; overflow: hidden; box-shadow: 0 30px 70px -40px rgba(0,0,0,0.7); }
+  .brain-graph { width: 100%; height: auto; display: block; }
+  .brain-graph .edge { stroke: var(--border-2); stroke-width: 1.2; fill: none; opacity: 0.5; }
+  .brain-graph .edge.flow { stroke: var(--claude-2); stroke-dasharray: 3 7; opacity: 0.6; animation: dashflow 2.8s linear infinite; }
+  @keyframes dashflow { to { stroke-dashoffset: -30; } }
+  .brain-graph .node circle { stroke: var(--bg); stroke-width: 2; }
+  .brain-graph .node text { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--muted); text-anchor: middle; }
+  .brain-graph .n-prod circle { fill: var(--p4); }
+  .brain-graph .n-brand circle { fill: var(--p5); }
+  .brain-graph .n-policy circle { fill: var(--p2); }
+  .brain-graph .n-cust circle { fill: var(--p1); }
+  .brain-graph .n-analysis circle { fill: var(--amber); }
+  .brain-graph .n-shop circle { fill: var(--claude-2); }
+  .brain-graph .n-shop text { fill: var(--text); font-weight: 700; font-size: 12.5px; }
+  .brain-graph .n-shop .halo { fill: var(--claude); opacity: 0.3; transform-box: fill-box; transform-origin: center; animation: halo 2.6s ease-in-out infinite; }
+  @keyframes halo { 0%,100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.9); opacity: 0; } }
+  .brain-graph .float-a { animation: gfloat 7s ease-in-out infinite; }
+  .brain-graph .float-b { animation: gfloat 8.5s ease-in-out infinite; animation-delay: -2s; }
+  .brain-graph .float-c { animation: gfloat 6.5s ease-in-out infinite; animation-delay: -4s; }
+  @keyframes gfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  .graph-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 8px; }
+  .graph-legend .lg { display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+  .graph-legend .lg::before { content: ''; width: 9px; height: 9px; border-radius: 50%; }
+  .graph-legend .lg-prod::before { background: var(--p4); }
+  .graph-legend .lg-brand::before { background: var(--p5); }
+  .graph-legend .lg-policy::before { background: var(--p2); }
+  .graph-legend .lg-cust::before { background: var(--p1); }
+  .graph-legend .lg-shop::before { background: var(--claude-2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Brand bar -->
+  <div class="brandbar">
+    <div class="lio">
+      <span class="mark"><b>LIO</b></span>
+      <span class="tagline">The AI Operator</span>
+      <span class="cross">×</span>
+      <img class="brand-187n" src="assets/187n-logo.png" alt="187N" />
+    </div>
+    <span class="live"><span class="d"></span>Gratis Masterclass · Live</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+<pre class="asciimark">  ██╗     ██╗ ██████╗
+  ██║     ██║██╔═══██╗
+  ██║     ██║██║   ██║
+  ███████╗██║╚██████╔╝
+  ╚══════╝╚═╝ ╚═════╝</pre>
+    <div class="eyebrow"><span class="l"></span>Bouw je eerste AI-medewerker<span class="r"></span></div>
+    <h1>Jouw <em>AI-medewerker</em><br>voor je webshop</h1>
+    <p class="sub">In 45 minuten van "wat is AI?" naar een medewerker die jouw shop kent, je klanten in <em>jouw</em> stem beantwoordt, en het werk voor je doet.</p>
+    <div class="hero-chips">
+      <span class="chip"><span class="d" style="background:var(--claude-2)"></span>± 45 minuten</span>
+      <span class="chip"><span class="d" style="background:var(--amber)"></span>Geen voorkennis nodig</span>
+      <span class="chip"><span class="d" style="background:var(--p4)"></span>Live meebouwen</span>
+      <span class="chip"><span class="d" style="background:var(--p5)"></span>Op je eigen laptop</span>
+    </div>
+  </div>
+
+  <!-- Promise -->
+  <div class="promise">
+    <div class="tag">▎ De belofte van vanavond</div>
+    <p>Aan het eind heb jij een AI-medewerker die jouw webshop kent en je klanten in <em>jouw</em> stem beantwoordt — en die je nooit meer kwijtraakt.</p>
+  </div>
+
+  <!-- Programma -->
+  <section class="stage" style="--accent:var(--p2)">
+    <div class="section-head">
+      <span class="section-tag"><span class="dot"></span>Het programma</span>
+      <h2 class="section-h">Wat we <em>vanavond</em> doen</h2>
+      <p class="section-sub">Zes stappen. Één ding tegelijk. Jij typt mee — ik loop naast je.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item" style="--tc:var(--p6)">
+        <div class="tl-time">0:00</div>
+        <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
+        <div class="tl-card"><div class="h"><span class="em">🎬</span><h4>Welkom + de belofte</h4></div><p>Wat je vanavond bouwt: het brein van je webshop.</p></div>
+      </div>
+      <div class="tl-item" style="--tc:var(--p3)">
+        <div class="tl-time">0:05</div>
+        <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
+        <div class="tl-card"><div class="h"><span class="em">🔧</span><h4>Even zorgen dat je binnen bent</h4></div><p>Samen Claude Code openen. Het enige technische stukje — we doen het samen.</p></div>
+      </div>
+      <div class="tl-item" style="--tc:var(--amber)">
+        <div class="tl-time">0:10</div>
+        <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
+        <div class="tl-card"><div class="h"><span class="em">🧠</span><h4>Je brein opzetten</h4><span class="step1">Stap 1</span></div><p>De structuur van je kennisbank — in een paar minuten klaar, zonder gedoe.</p></div>
+      </div>
+      <div class="tl-item" style="--tc:var(--p1)">
+        <div class="tl-time">0:15</div>
+        <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
+        <div class="tl-card"><div class="h"><span class="em">📥</span><h4>Je shop erin</h4><span class="step1" style="background:var(--claude-2)">Hoofdgerecht</span></div><p>Producten, beleid, jouw stem → je AI leert je hele shop kennen. Hier zit de tijd.</p></div>
+      </div>
+      <div class="tl-item" style="--tc:var(--p4)">
+        <div class="tl-time">0:33</div>
+        <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
+        <div class="tl-card"><div class="h"><span class="em">🌐</span><h4>De brein-kaart</h4></div><p>Je hele shop wordt een levende, visuele kaart. Dit laat ik je live zien.</p></div>
+      </div>
+      <div class="tl-item" style="--tc:var(--p5)">
+        <div class="tl-time">0:40</div>
+        <div class="tl-mid"><span class="tl-dot"></span><span class="tl-line"></span></div>
+        <div class="tl-card"><div class="h"><span class="em">🎁</span><h4>Wat het ontgrendelt + cadeaus</h4></div><p>De skills die je AI maakt — ads, teksten, mails — en jouw value-bomb cadeau.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="stage" style="--accent:var(--amber)">
+    <div class="section-head">
+      <span class="section-tag"><span class="dot"></span>Hoe het werkt</span>
+      <h2 class="section-h">Van losse info naar een <em>levend brein</em></h2>
+      <p class="section-sub">Drie lagen. Elke laag maakt je AI slimmer over jóuw shop.</p>
+    </div>
+    <div class="split">
+      <div class="txt">
+        <span class="micro"><span class="dot"></span>De architectuur</span>
+        <h3>Basis → <em>kennisbank</em> → <em>kaart</em>.</h3>
+        <p class="lead"><b style="color:var(--text)">1 · De basis (CLAUDE.md).</b> De kern van je shop: wat je verkoopt, je klanten, je stem, je beleid. Claude leest dit elke sessie.</p>
+        <p class="lead"><b style="color:var(--text)">2 · De kennisbank.</b> Je shop groeit uit tot losse pagina's — producten, beleid, merkstem — netjes aan elkaar gelinkt.</p>
+        <p class="lead"><b style="color:var(--text)">3 · De brein-kaart.</b> Eén commando maakt er een visuele kaart van: alles wat je AI over je shop weet, in één oogopslag.</p>
+        <div class="arch-row">
+          <span class="b">🧠 CLAUDE.md</span><span class="ar">→</span><span class="b">📚 kennisbank</span><span class="ar">→</span><span class="b">🌐 brein-kaart</span>
+        </div>
+      </div>
+      <div class="vis-wrap">
+        <div class="file-mock">
+          <div class="head"><span class="dots"><span></span><span></span><span></span></span><span class="fname">CLAUDE.md — het brein van je webshop</span></div>
+          <div class="body">
+            <div class="ln cm"># Mijn webshop</div>
+            <div class="ln"><span class="key">Naam:</span> De Kaarsenhoek</div>
+            <div class="ln"><span class="key">Verkoop:</span> handgemaakte sojawas-kaarsen</div>
+            <div class="ln"><span class="key">Klanten:</span> mensen die van sfeer houden</div>
+            <div class="ln cm"># Merkstem</div>
+            <div class="ln"><span class="key">Toon:</span> <span class="hl cursor">warm, persoonlijk, je/jij</span></div>
+            <div class="ln cm"># Beleid</div>
+            <div class="ln"><span class="key">Retour:</span> 14 dagen · gratis vanaf €35</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brein-kaart showcase -->
+  <section class="stage graphshow" style="--accent:var(--p4)">
+    <div class="section-head">
+      <span class="section-tag"><span class="dot"></span>De brein-kaart</span>
+      <h2 class="section-h">Zo ziet een <em>brein</em> eruit</h2>
+      <p class="section-sub">Elke bol is iets uit je shop. Elke lijn een verband. De grootste bol is waar alles om draait.</p>
+    </div>
+    <div class="graph-wrap">
+      <svg class="brain-graph" viewBox="0 0 800 470" role="img" aria-label="Brein-kaart van een webshop">
+        <g class="edges">
+          <line class="edge flow" x1="400" y1="235" x2="175" y2="110"/>
+          <line class="edge" x1="400" y1="235" x2="110" y2="235"/>
+          <line class="edge" x1="400" y1="235" x2="175" y2="360"/>
+          <line class="edge" x1="400" y1="235" x2="295" y2="150"/>
+          <line class="edge flow" x1="400" y1="235" x2="430" y2="85"/>
+          <line class="edge" x1="400" y1="235" x2="575" y2="105"/>
+          <line class="edge flow" x1="400" y1="235" x2="625" y2="215"/>
+          <line class="edge flow" x1="400" y1="235" x2="640" y2="330"/>
+          <line class="edge" x1="400" y1="235" x2="560" y2="405"/>
+          <line class="edge" x1="400" y1="235" x2="455" y2="400"/>
+          <line class="edge flow" x1="400" y1="235" x2="240" y2="400"/>
+          <line class="edge" x1="400" y1="235" x2="320" y2="335"/>
+          <line class="edge flow" x1="400" y1="235" x2="300" y2="240"/>
+          <line class="edge" x1="175" y1="110" x2="430" y2="85"/>
+          <line class="edge" x1="110" y1="235" x2="300" y2="240"/>
+          <line class="edge" x1="175" y1="360" x2="240" y2="400"/>
+          <line class="edge" x1="295" y1="150" x2="320" y2="335"/>
+          <line class="edge" x1="300" y1="240" x2="175" y2="110"/>
+          <line class="edge" x1="455" y1="400" x2="560" y2="405"/>
+          <line class="edge" x1="575" y1="105" x2="625" y2="215"/>
+          <line class="edge" x1="240" y1="400" x2="320" y2="335"/>
+          <line class="edge" x1="625" y1="215" x2="640" y2="330"/>
+        </g>
+        <g class="nodes">
+          <g class="node n-prod float-a"><circle cx="175" cy="110" r="8"/><text x="175" y="94">Amber &amp; Hout</text></g>
+          <g class="node n-prod float-c"><circle cx="110" cy="235" r="8"/><text x="110" y="219">Vijgenblad</text></g>
+          <g class="node n-prod float-b"><circle cx="175" cy="360" r="8"/><text x="175" y="344">Reed Diffuser</text></g>
+          <g class="node n-prod"><circle cx="295" cy="150" r="8"/><text x="295" y="134">Cadeauset</text></g>
+          <g class="node n-brand"><circle cx="430" cy="85" r="8"/><text x="430" y="69">Merkstem</text></g>
+          <g class="node n-brand float-b"><circle cx="575" cy="105" r="8"/><text x="575" y="89">Handgemaakt</text></g>
+          <g class="node n-brand float-a"><circle cx="625" cy="215" r="8"/><text x="625" y="199">Duurzaam</text></g>
+          <g class="node n-policy float-c"><circle cx="640" cy="330" r="8"/><text x="640" y="314">Verzending</text></g>
+          <g class="node n-policy float-b"><circle cx="560" cy="405" r="8"/><text x="560" y="428">Retour</text></g>
+          <g class="node n-policy"><circle cx="455" cy="400" r="8"/><text x="455" y="423">Prijsregels</text></g>
+          <g class="node n-cust"><circle cx="240" cy="400" r="8"/><text x="240" y="423">Sfeer-zoekers</text></g>
+          <g class="node n-cust float-c"><circle cx="320" cy="335" r="8"/><text x="320" y="359">Cadeau-kopers</text></g>
+          <g class="node n-analysis"><circle cx="300" cy="240" r="7"/><text x="300" y="224">Bestsellers</text></g>
+          <g class="node n-shop"><circle class="halo" cx="400" cy="235" r="16"/><circle cx="400" cy="235" r="16"/><text x="400" y="272">De Kaarsenhoek</text></g>
+        </g>
+      </svg>
+      <div class="graph-legend">
+        <span class="lg lg-prod">Producten</span>
+        <span class="lg lg-brand">Merk</span>
+        <span class="lg lg-policy">Beleid</span>
+        <span class="lg lg-cust">Klanten</span>
+        <span class="lg lg-shop">De shop</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills per afdeling -->
+  <section class="stage" style="--accent:var(--p1)">
+    <div class="section-head">
+      <span class="section-tag"><span class="dot"></span>Wat je brein ontgrendelt</span>
+      <h2 class="section-h">Een heel <em>team</em> aan skills — cadeau</h2>
+      <p class="section-sub">Je bouwt ze niet los; je brein maakt ze allemaal on-brand. Vanavond laat ik er een paar zien — jij houdt ze allemaal.</p>
+    </div>
+
+    <div class="dept" style="--dc:var(--p1)">
+      <div class="dept-head"><span class="dept-ico">🎧</span><h3>Klantenservice</h3><span class="dept-tag">reageren namens je shop</span></div>
+      <div class="dept-grid">
+        <div class="cap-card"><div class="cap-ico">🤖</div><div class="cmd">/klantenhulp</div><p>Klantmail of DM → antwoord in jouw stem, met jouw beleid.</p></div>
+        <div class="cap-card"><div class="cap-ico">⭐</div><div class="cmd">/review-reactie</div><p>Review → nette on-brand reactie, ook bij kritiek.</p></div>
+        <div class="cap-card"><div class="cap-ico">🧯</div><div class="cmd">/klacht-sussen</div><p>Boze klant → kalme de-escalatie met een oplossing.</p></div>
+        <div class="cap-card"><div class="cap-ico">❓</div><div class="cmd">/vraagbaak</div><p>Je beleid → complete FAQ + een offline faq-pagina.</p></div>
+      </div>
+    </div>
+
+    <div class="dept" style="--dc:var(--p6)">
+      <div class="dept-head"><span class="dept-ico">📣</span><h3>Marketing &amp; Ads</h3><span class="dept-tag">bereik, ads &amp; content</span></div>
+      <div class="dept-grid">
+        <div class="cap-card"><div class="cap-ico">🎣</div><div class="cmd">/scroll-stop</div><p>Product → 10 scroll-stoppende hooks voor ads & posts.</p></div>
+        <div class="cap-card"><div class="cap-ico">📱</div><div class="cmd">/social-set</div><p>Aanbieding → social-post + advertentievariant + beeld-tip.</p></div>
+        <div class="cap-card"><div class="cap-ico">🗓️</div><div class="cmd">/actie-kalender</div><p>Je shop → jaar-promokalender met campagne-angles.</p></div>
+        <div class="cap-card"><span class="badge">⚡ AI-beeld</span><div class="cap-ico">🎨</div><div class="cmd">/static-ad</div><p>Product → een echte advertentie-afbeelding (Higgsfield).</p></div>
+      </div>
+    </div>
+
+    <div class="dept" style="--dc:var(--amber)">
+      <div class="dept-head"><span class="dept-ico">🛍️</span><h3>Winkel &amp; producten</h3><span class="dept-tag">pagina's, SEO &amp; bestelwaarde</span></div>
+      <div class="dept-grid">
+        <div class="cap-card"><div class="cap-ico">📝</div><div class="cmd">/productverhaal</div><p>Product → verkopende omschrijving + SEO.</p></div>
+        <div class="cap-card"><div class="cap-ico">🔎</div><div class="cmd">/vindbaar</div><p>Betere titels, meta's + product-schema voor Google.</p></div>
+        <div class="cap-card"><div class="cap-ico">🏗️</div><div class="cmd">/winkelpagina</div><p>Product of actie → een offline landingspagina.</p></div>
+        <div class="cap-card"><div class="cap-ico">🎁</div><div class="cmd">/bundel-bouwer</div><p>Slimme bundels & upsells voor hogere bestelwaarde.</p></div>
+        <div class="cap-card"><div class="cap-ico">🏷️</div><div class="cmd">/prijs-slim</div><p>Psychologische prijspresentatie: ankeren, van/voor.</p></div>
+      </div>
+    </div>
+
+    <div class="dept" style="--dc:var(--p4)">
+      <div class="dept-head"><span class="dept-ico">🔁</span><h3>Retentie</h3><span class="dept-tag">klanten terug &amp; meer laten kopen</span></div>
+      <div class="dept-grid">
+        <div class="cap-card"><div class="cap-ico">🛒</div><div class="cmd">/mandje-redden</div><p>Verlaten winkelwagen → 3-mail-reeks die terugwint.</p></div>
+        <div class="cap-card"><div class="cap-ico">👋</div><div class="cmd">/welkom-reeks</div><p>Nieuwe klant → welkomstmails die vertrouwen bouwen.</p></div>
+        <div class="cap-card"><div class="cap-ico">📧</div><div class="cmd">/mail-magneet</div><p>Actie of product → complete campagne-mail.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Install / wat je nodig hebt -->
+  <section class="stage" style="--accent:var(--p3)">
+    <div class="section-head">
+      <span class="section-tag"><span class="dot"></span>Zo doe je mee</span>
+      <h2 class="section-h">Twee commando's, en je bent <em>klaar</em></h2>
+      <p class="section-sub">Plak deze in je terminal. Lukt het niet? Geen stress — we doen de setup samen.</p>
+    </div>
+    <div class="term">
+      <div class="head"><span class="dots"><span></span><span></span><span></span></span><span>terminal — jouw laptop</span></div>
+      <div class="body">
+        <div class="step-lbl"># 1 — Installeer Claude Code (Mac)</div>
+        <div class="cmd"><span class="p">$</span> curl -fsSL https://claude.ai/install.sh | bash</div>
+        <div class="note">Windows? Open PowerShell → <span class="c">irm https://claude.ai/install.ps1 | iex</span></div>
+        <div class="step-lbl"># 2 — Installeer de masterclass</div>
+        <div class="cmd"><span class="p">$</span> curl -fsSL https://raw.githubusercontent.com/novusordos666/webshop-ai-masterclass/main/install.sh | bash</div>
+        <div class="step-lbl"># 3 — Start</div>
+        <div class="cmd"><span class="p">$</span> claude</div>
+        <div class="cmd"><span class="c">/webshop:masterclass</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Klaar? <em>Let's go.</em></h2>
+    <p>Open Claude Code en typ het commando. Ik neem het vanaf daar over.</p>
+    <a class="go" href="#">/webshop:masterclass →</a>
+    <div class="socials">Volg <b>@lio</b> · <b>@liogpt</b> · <b>@187n</b> &nbsp;·&nbsp; Volledige cursus → lio.circle.so</div>
+  </div>
+
+  <div class="foot">LIO — The AI Operator × 187N · Gebouwd met Claude Code</div>
+
+</div>
+
+<script>
+  // Reveal sections on scroll (met vangnet: nooit onzichtbaar blijven hangen)
+  const stages = document.querySelectorAll('.stage');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+    }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
+    stages.forEach(s => io.observe(s));
+    // Fallback: alles wat na 2.5s nog verborgen is, alsnog tonen
+    setTimeout(() => stages.forEach(s => s.classList.add('in-view')), 2500);
+  } else {
+    stages.forEach(s => s.classList.add('in-view'));
+  }
+</script>
+</body>
+</html>

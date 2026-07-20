@@ -1,0 +1,4 @@
+# graphify machine-specifieke tempbestanden (graph.html/graph.json/GRAPH_REPORT.md blijven wel mee)
+.graphify_*
+# macOS
+.DS_Store
