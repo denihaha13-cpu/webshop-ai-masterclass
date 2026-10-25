@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jouw cadeau · LIO × 187N</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,wght@1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070810; --card: #0f1119; --card-2: #131623; --ui: #171a27;
+    --border: #242838; --border-2: #2e3244;
+    --text: #f4f4f5; --muted: #a1a1aa; --dim: #6b7280; --faint: #4b5563;
+    --claude: #2845ff; --claude-2: #6d84ff; --claude-glow: rgba(40,69,255,0.35);
+    --amber: #f0b441; --gold: #facc15; --green-2: #4ade80;
+    --p1:#818cf8; --p3:#22d3ee; --p4:#2dd4bf; --p6:#60a5fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; }
+  body::after { content: ''; position: fixed; inset: 0; background: radial-gradient(900px at 12% 4%, rgba(40,69,255,0.13), transparent 60%), radial-gradient(760px at 88% 90%, rgba(240,180,65,0.08), transparent 60%); pointer-events: none; z-index: 0; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .wrap { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; padding: 30px 16px 90px; }
+  a { color: var(--amber); }
+
+  .brandbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 20px; margin-bottom: 40px; background: rgba(15,17,25,0.7); border: 1px solid var(--border); border-radius: 14px; }
+  .brandbar .lio { display: inline-flex; align-items: center; gap: 10px; }
+  .brandbar .mark { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 16px; letter-spacing: 0.06em; border: 1px solid var(--border-2); border-radius: 8px; padding: 5px 11px; background: var(--card-2); }
+  .brandbar .mark b { color: var(--claude-2); }
+  .brandbar .cross { font-family: 'JetBrains Mono', monospace; color: var(--dim); }
+  .brandbar img { height: 26px; width: auto; display: block; }
+  .brandbar .tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); border: 1px solid rgba(240,180,65,0.4); background: rgba(240,180,65,0.08); border-radius: 100px; padding: 6px 13px; }
+  @media (max-width: 520px){ .brandbar .tag { display: none; } }
+
+  .hero { text-align: center; margin-bottom: 44px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--claude-2); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 7vw, 66px); font-weight: 900; letter-spacing: -0.045em; line-height: 1.02; }
+  .hero h1 em { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; color: var(--amber); }
+  .hero p { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(17px, 2.2vw, 22px); color: var(--muted); margin: 18px auto 0; max-width: 620px; }
+  .dl { display: inline-flex; margin-top: 26px; padding: 14px 24px; background: var(--claude); color: #fff; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 14px; border-radius: 100px; text-decoration: none; box-shadow: 0 12px 40px -12px var(--claude-glow); word-break: break-all; }
+
+  section { margin-top: 56px; }
+  .tag-s { display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent, var(--claude-2)); margin-bottom: 10px; }
+  .tag-s .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
+  h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 18px; }
+  h2 em { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; color: var(--accent, var(--amber)); }
+  p.lead { color: var(--muted); font-size: 16px; margin-bottom: 18px; }
+
+  .list { display: grid; gap: 12px; }
+  .item { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; display: flex; gap: 14px; }
+  .item .em { font-size: 22px; line-height: 1.3; flex-shrink: 0; }
+  .item h4 { font-size: 15.5px; font-weight: 700; }
+  .item p { font-size: 14px; color: var(--muted); margin-top: 2px; }
+  code { font-family: 'JetBrains Mono', monospace; font-size: 0.88em; color: var(--amber); background: rgba(240,180,65,0.08); padding: 1px 6px; border-radius: 5px; }
+
+  .depts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 18px; }
+  @media (max-width: 620px){ .depts { grid-template-columns: 1fr; } }
+  .dept { background: var(--card); border: 1px solid var(--border); border-top: 2px solid var(--dc); border-radius: 14px; padding: 16px 18px; }
+  .dept h4 { font-size: 15px; font-weight: 800; margin-bottom: 10px; }
+  .dept .cmds { display: flex; flex-wrap: wrap; gap: 6px; }
+  .dept .cmds span { font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 4px 9px; background: var(--ui); border: 1px solid var(--border); border-radius: 8px; }
+  .note { font-size: 13px; color: var(--dim); margin-top: 12px; }
+
+  .steps { counter-reset: s; display: grid; gap: 12px; }
+  .step, .item, .item > div, .dept { min-width: 0; }
+  .step { counter-increment: s; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px 16px 62px; position: relative; }
+  .step::before { content: counter(s); position: absolute; left: 18px; top: 15px; width: 30px; height: 30px; border-radius: 50%; background: color-mix(in oklab, var(--p3) 18%, transparent); border: 1px solid var(--p3); color: var(--p3); font-family: 'JetBrains Mono', monospace; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+  .step h4 { font-size: 15.5px; font-weight: 700; }
+  .step p { font-size: 14px; color: var(--muted); margin-top: 4px; }
+  .term { margin-top: 10px; background: #05060d; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.8; overflow-x: auto; }
+  .term .l { color: var(--claude-2); font-weight: 700; }
+  .term .c { color: var(--text); white-space: nowrap; }
+  .term .c::before { content: '$ '; color: var(--green-2); }
+
+  .good { margin-top: 16px; background: var(--card-2); border: 1px dashed var(--border-2); border-radius: 14px; padding: 14px 18px; font-size: 14px; color: var(--muted); }
+  .good b { color: var(--text); }
+
+  .cta { margin-top: 64px; text-align: center; background: linear-gradient(160deg, var(--card-2), var(--card)); border: 1px solid color-mix(in oklab, var(--claude) 30%, var(--border)); border-radius: 22px; padding: 40px 22px; }
+  .cta ul { list-style: none; display: grid; gap: 8px; max-width: 520px; margin: 0 auto 24px; text-align: left; }
+  .cta li { color: var(--muted); font-size: 15px; padding-left: 26px; position: relative; }
+  .cta li::before { content: '✓'; position: absolute; left: 0; color: var(--green-2); font-weight: 700; }
+  .cta li b { color: var(--text); }
+  .cta .go { display: inline-flex; padding: 16px 28px; background: var(--claude); color: #fff; font-weight: 700; font-size: 15px; font-family: 'JetBrains Mono', monospace; border-radius: 100px; text-decoration: none; box-shadow: 0 12px 40px -12px var(--claude-glow); }
+  .cta .small { font-size: 13.5px; color: var(--dim); margin-top: 16px; }
+
+  .foot { text-align: center; margin-top: 50px; color: var(--dim); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; }
+  .foot b { color: var(--claude-2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brandbar">
+    <span class="lio"><span class="mark">L<b>I</b>O</span><span class="cross">×</span><img src="assets/187n-logo.png" alt="187N"></span>
+    <span class="tag">🎁 Jouw cadeau</span>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Bedankt dat je erbij was</div>
+    <h1>Jouw webshop-brein <em>+ 16 skills</em></h1>
+    <p>Je bouwde vanavond het brein van je webshop. Dit is het cadeau dat Leon, oprichter van 187N, voor je klaarzette: een heel team aan skills dat jouw brein leest. Alles klinkt dus vanzelf als jóuw shop.</p>
+    <a class="dl" href="https://github.com/novusordos666/webshop-ai-masterclass" target="_blank" rel="noopener">Download je cadeau →</a>
+  </header>
+
+  <section style="--accent:var(--p1)">
+    <div class="tag-s"><span class="dot"></span>Wat zit erin</div>
+    <h2>Meer dan een paar <em>losse prompts</em></h2>
+    <p class="lead">Je krijgt een AI-medewerker met een eigen brein, plus een heel team aan skills dat dat brein gebruikt.</p>
+    <div class="list">
+      <div class="item"><span class="em">🧠</span><div><h4>Het brein van je webshop</h4><p>Een <code>CLAUDE.md</code> plus een kennisbank (<code>wiki/</code>) met je producten, je beleid en je stem.</p></div></div>
+      <div class="item"><span class="em">🎓</span><div><h4>De geleide masterclass met LIO</h4><p>Je persoonlijke coach. Hij begint bij jouw webshop en helpt je stap voor stap. Je kunt de les altijd opnieuw doen.</p></div></div>
+      <div class="item"><span class="em">🧰</span><div><h4>16 webshop-skills</h4><p>Kant-en-klaar voor klantenservice, ads, productteksten en mails. Na de installatie staan ze meteen op je laptop.</p></div></div>
+      <div class="item"><span class="em">📄</span><div><h4>Een voorbeeld-brein</h4><p>Zo ziet een sterke basis eruit. Handig om naast die van jou te leggen.</p></div></div>
+      <div class="item"><span class="em">🔄</span><div><h4>Updates</h4><p>Draai de installer opnieuw en je krijgt de nieuwste skills. Je eigen brein blijft gewoon staan.</p></div></div>
+    </div>
+
+    <div class="depts">
+      <div class="dept" style="--dc:var(--p1)"><h4>🎧 Klantenservice</h4><div class="cmds"><span>klantenhulp</span><span>review-reactie</span><span>klacht-sussen</span><span>vraagbaak</span></div></div>
+      <div class="dept" style="--dc:var(--p6)"><h4>📣 Marketing &amp; Ads</h4><div class="cmds"><span>scroll-stop</span><span>social-set</span><span>actie-kalender</span><span>static-ad ⚡</span></div></div>
+      <div class="dept" style="--dc:var(--amber)"><h4>🛍️ Winkel &amp; producten</h4><div class="cmds"><span>productverhaal</span><span>vindbaar</span><span>winkelpagina</span><span>bundel-bouwer</span><span>prijs-slim</span></div></div>
+      <div class="dept" style="--dc:var(--p4)"><h4>🔁 Retentie</h4><div class="cmds"><span>mandje-redden</span><span>welkom-reeks</span><span>mail-magneet</span></div></div>
+    </div>
+    <p class="note">Typ <code>/webshop:</code> en je ziet ze allemaal. ⚡ <code>static-ad</code> maakt een echte advertentie-afbeelding en heeft de Higgsfield-koppeling nodig. De andere 15 werken helemaal offline.</p>
+  </section>
+
+  <section style="--accent:var(--p3)">
+    <div class="tag-s"><span class="dot"></span>Zo installeer je het</div>
+    <h2>Eén commando, en je bent <em>klaar</em></h2>
+    <p class="lead">Je hebt alleen Claude Code nodig (Mac of Windows).</p>
+    <div class="steps">
+      <div class="step"><h4>Installeer Claude Code</h4><p>Heb je het nog niet? Open de Terminal (Mac) of PowerShell (Windows), plak dit en typ daarna <code>claude</code> om in te loggen.</p>
+        <div class="term"><div class="l"># Mac</div><div class="c">curl -fsSL https://claude.ai/install.sh | bash</div><div class="l"># Windows</div><div class="c">irm https://claude.ai/install.ps1 | iex</div></div></div>
+      <div class="step"><h4>Installeer het cadeau</h4><p>Plak dit commando. Het zet alle 16 skills op je laptop.</p>
+        <div class="term"><div class="l"># Mac</div><div class="c">curl -fsSL https://raw.githubusercontent.com/novusordos666/webshop-ai-masterclass/main/install.sh | bash</div><div class="l"># Windows</div><div class="c">irm https://raw.githubusercontent.com/novusordos666/webshop-ai-masterclass/main/install.ps1 | iex</div></div></div>
+      <div class="step"><h4>Open Claude Code</h4><p>Typ <code>claude</code> in een map die je terugvindt, bijvoorbeeld je Documenten. Daar komt je map <code>webshop-brein/</code> te staan.</p></div>
+      <div class="step"><h4>Typ: <code>/webshop:masterclass</code></h4><p>LIO neemt het vanaf hier over en helpt je één stap tegelijk.</p></div>
+    </div>
+
+    <div class="list" style="margin-top:16px">
+      <div class="item"><span class="em">👋</span><div><h4><code>/webshop:start</code></h4><p>Laat het welkomstscherm zien.</p></div></div>
+      <div class="item"><span class="em">🔁</span><div><h4><code>/webshop:masterclass</code></h4><p>Doe de les (opnieuw). Zo bouw je je brein of vul je het verder aan.</p></div></div>
+      <div class="item"><span class="em">⚙️</span><div><h4><code>/webshop:klantenhulp</code> (of een andere skill)</h4><p>Zet direct een skill aan het werk. Plak gewoon je klantvraag, product of actie erin.</p></div></div>
+    </div>
+
+    <div class="good"><b>Goed om te weten:</b> je eigen accounts en eventuele abonnementen (Claude, Higgsfield) regel je zelf. Je brein staat alleen op jouw laptop. Begin gerust met voorbeeldproducten als je eerst wilt oefenen.</div>
+  </section>
+
+  <div class="cta">
+    <div class="tag-s" style="--accent:var(--amber)"><span class="dot"></span>De volgende stap</div>
+    <h2>Wil je dat wij het <em>voor je bouwen?</em></h2>
+    <p class="lead">Je hele webshop op AI, gekoppeld aan je echte Gmail, je webshop en je socials. Zodat het 24/7 doorloopt.</p>
+    <ul>
+      <li><b>Een scan van jouw shop:</b> we kijken samen waar je nu staat en wat AI voor jou kan overnemen.</li>
+      <li><b>Wij bouwen je AI-operator:</b> precies zoals je 'm vanavond zag, maar dan helemaal voor jouw shop.</li>
+      <li><b>Afgestemd op jou:</b> wat er gebeurt, hangt af van je shop en waar jij nu staat.</li>
+    </ul>
+    <a class="go" href="https://calendly.com/lio-187n/187n-agency-scan-t-clone" target="_blank" rel="noopener">Boek je 187N Agency Scan →</a>
+    <p class="small">Twijfel je nog? Plan de call gewoon in. Dan kijken jullie samen of het voor jou handig is.<br>Liever zelf verder leren? De volledige cursus staat op <a href="https://lio.circle.so" target="_blank" rel="noopener">lio.circle.so</a>.</p>
+  </div>
+
+  <div class="foot">Volg <b>@lio</b> · <b>@liogpt</b> · <b>@187n</b> &nbsp;·&nbsp; LIO — The AI Operator × 187N</div>
+
+</div>
+</body>
+</html>

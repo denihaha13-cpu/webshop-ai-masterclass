@@ -16,6 +16,7 @@ De masterclass draait om **het brein van de webshop** als het lange hoofdgerecht
 | `assets/187n-logo.png` | Het gouden 187N-merk (uit `187n/brand-guide/assets/logo-mark-web.png`). ⚠️ blijft goud, nooit recolor |
 | `webshop-masterclass.html` | Cover-pagina **LIO-versie** (donker) — voor op scherm vóór de sessie |
 | `webshop-masterclass-187n.html` | Cover-pagina **187N-versie** (cream editorial + coral) |
+| `CADEAU.md` / `cadeau.html` | Weggever voor na de sessie: wat zit erin, installatie, CTA (Agency Scan + cursus) |
 | `templates/webshop-brein.md` | Voorbeeld van een sterke CLAUDE.md-basis |
 | `HOST-RUNSHEET.md` | Leon's draaiboek (timing, pre-flight, graphify/Obsidian-demo, vangnetten) |
 | `MASTERCLASS-PLAN.md` | Het plan / concept |
