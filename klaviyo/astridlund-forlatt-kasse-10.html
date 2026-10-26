@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="no" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Handlekurven din venter – 10 % hos Astridlund</title>
+<style>
+  body { margin:0; padding:0; background:#F6F1EA; }
+  img { border:0; display:block; outline:none; text-decoration:none; }
+  a { color:#2B2522; }
+  @media only screen and (max-width:620px) {
+    .wrap { width:100% !important; }
+    .col2 { display:block !important; width:100% !important; }
+    .px { padding-left:20px !important; padding-right:20px !important; }
+    .h1 { font-size:30px !important; line-height:36px !important; }
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#F6F1EA;">
+<!-- Forhåndstekst (vises i innboksen) -->
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">Vi har tatt vare på handlekurven din – og her er 10 % med koden VELKOMMEN10 🤍</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F6F1EA;">
+<tr><td align="center" style="padding:20px 10px;">
+
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;background:#FFFFFF;font-family:Georgia,'Times New Roman',serif;color:#2B2522;">
+
+  <!-- LOGO -->
+  <tr><td align="center" style="padding:24px 20px 18px;">
+    <a href="https://astridlund.no"><img src="https://astridlund.no/cdn/shop/files/ChatGPT_Image_31_mei_2026_16_17_54_a7223915-7b0c-4289-bc6e-abadba8ecf52.png?v=1789591686&width=360" width="180" alt="Astridlund" style="width:180px;height:auto;"></a>
+  </td></tr>
+
+  <!-- HERO -->
+  <tr><td>
+    <a href="{{ event.extra.checkout_url }}"><img src="https://astridlund.no/cdn/shop/files/2d34888a-cca1-43d9-890d-8471d4bc0a0b.jpg?v=1792968688&width=1200" width="600" alt="Kvinner i varme vinterklær fra Astridlund" style="width:100%;max-width:600px;height:auto;"></a>
+  </td></tr>
+  <tr><td align="center" class="px" style="background:#3B302B;padding:30px 40px 34px;">
+    <p style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:2px;color:#E9DFD3;">DU GLEMTE NOE I HANDLEKURVEN!</p>
+    <p class="h1" style="margin:0;font-size:36px;line-height:42px;color:#FFFFFF;letter-spacing:1px;">FÅ 10 % RABATT</p>
+    <p style="margin:4px 0 20px;font-size:20px;line-height:26px;color:#FFFFFF;letter-spacing:1px;">PÅ BESTILLINGEN DIN NÅ</p>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr>
+      <td style="background:#FFFFFF;padding:8px 18px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#2B2522;">Koden: <strong>VELKOMMEN10</strong></td>
+    </tr></table>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-top:16px;"><tr>
+      <td style="background:#C8A97E;"><a href="{{ event.extra.checkout_url }}" style="display:inline-block;padding:13px 30px;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;letter-spacing:2px;color:#2B2522;text-decoration:none;">FULLFØR MED 10 % RABATT</a></td>
+    </tr></table>
+  </td></tr>
+
+  <!-- HOVEDTEKST -->
+  <tr><td align="center" class="px" style="padding:36px 50px 30px;">
+    <p style="margin:0 0 14px;font-size:24px;line-height:30px;letter-spacing:1px;">VI HAR TATT VARE PÅ HANDLEKURVEN DIN</p>
+    <p style="margin:0 0 22px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#5A504A;">Vi så at du nesten fullførte bestillingen din. Varene ligger fortsatt klare til deg – og som en liten hilsen får du 10 % rabatt. Trykk på knappen, så kommer du rett tilbake til kassen. Skriv inn koden VELKOMMEN10 hvis rabatten ikke vises automatisk.</p>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr>
+      <td style="border:1px dashed #2B2522;padding:8px 16px;font-family:Arial,Helvetica,sans-serif;font-size:13px;letter-spacing:1px;">BRUK KODEN: <strong>VELKOMMEN10</strong></td>
+    </tr></table>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-top:16px;"><tr>
+      <td style="background:#3B302B;"><a href="{{ event.extra.checkout_url }}" style="display:inline-block;padding:13px 30px;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;letter-spacing:2px;color:#FFFFFF;text-decoration:none;">FULLFØR BESTILLINGEN</a></td>
+    </tr></table>
+  </td></tr>
+
+  <!-- HANDLEKURV (dynamisk fra Checkout Started) -->
+  <tr><td class="px" style="background:#F3ECE3;padding:32px 40px 30px;">
+    <p style="margin:0 0 4px;text-align:center;font-size:22px;letter-spacing:1px;">DIN HANDLEKURV</p>
+    <p style="margin:0 0 20px;text-align:center;font-size:14px;color:#8A7D72;">• • • •</p>
+    {% if event.extra.line_items %}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;">
+    {% for item in event.extra.line_items %}
+      <tr>
+        <td width="120" valign="middle" style="padding:0 0 16px;">
+          <a href="{{ event.extra.checkout_url }}"><img src="{% if item.product.variant.images.0.src %}{{ item.product.variant.images.0.src }}{% else %}{{ item.product.images.0.src|missing_product_image }}{% endif %}" width="110" alt="{{ item.product.title }}" style="width:110px;height:auto;"></a>
+        </td>
+        <td valign="middle" style="padding:0 0 16px 14px;font-size:14px;line-height:20px;color:#2B2522;">
+          <strong>{{ item.product.title }}</strong><br>
+          <span style="color:#5A504A;">Antall: {{ item.quantity|floatformat:0 }}</span><br>
+          <span style="color:#5A504A;">{% currency_format item.line_price|floatformat:2 %}</span>
+        </td>
+      </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-top:8px;"><tr>
+      <td style="background:#3B302B;"><a href="{{ event.extra.checkout_url }}" style="display:inline-block;padding:13px 30px;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;letter-spacing:2px;color:#FFFFFF;text-decoration:none;">GÅ TIL HANDLEKURVEN</a></td>
+    </tr></table>
+  </td></tr>
+
+  <!-- OM ASTRIDLUND -->
+  <tr><td style="background:#3B302B;">
+    <img src="https://cdn.shopify.com/s/files/1/0849/5484/1363/files/6_720x_6a83fc7f-acce-4480-95d3-f6b2687fc1ac.webp?v=1788980787&width=1200&format=pjpg" width="600" alt="Nordisk genser fra Astridlund" style="width:100%;max-width:600px;height:auto;">
+  </td></tr>
+  <tr><td class="px" style="background:#3B302B;padding:22px 40px 28px;">
+    <p style="margin:0 0 8px;font-size:20px;letter-spacing:1px;color:#FFFFFF;">OM ASTRIDLUND</p>
+    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#E9DFD3;">Vi er en norsk nettbutikk for kvinner som vil kle seg pent – uten å ofre komforten. Myke stoffer, flatterende snitt og tidløse farger du kan bruke år etter år, til hverdag og fest.</p>
+  </td></tr>
+
+  <!-- KOLLEKSJONER -->
+  <tr><td class="px" style="background:#F3ECE3;padding:30px 30px 26px;">
+    <p style="margin:0 0 4px;text-align:center;font-size:22px;letter-spacing:1px;">HANDLE ETTER KOLLEKSJON</p>
+    <p style="margin:0 0 20px;text-align:center;font-size:14px;color:#8A7D72;">• • • •</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+      <td class="col2" width="50%" valign="top" style="padding:0 8px 14px;text-align:center;">
+        <a href="https://astridlund.no/collections/ja"><img src="https://cdn.shopify.com/s/files/1/0849/5484/1363/files/womens-long-hooded-button-front-fleece-coat-2.jpg?v=1792512573&width=600&format=pjpg" width="252" alt="Jakker og kåper" style="width:100%;max-width:252px;height:auto;margin:0 auto;"></a>
+        <a href="https://astridlund.no/collections/ja" style="display:block;background:#3B302B;color:#FFFFFF;padding:10px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;letter-spacing:2px;text-decoration:none;max-width:232px;margin:0 auto;">JAKKER OG KÅPER</a>
+      </td>
+      <td class="col2" width="50%" valign="top" style="padding:0 8px 14px;text-align:center;">
+        <a href="https://astridlund.no/collections/nordisk-genser"><img src="https://cdn.shopify.com/s/files/1/0849/5484/1363/files/6_720x_6a83fc7f-acce-4480-95d3-f6b2687fc1ac.webp?v=1788980787&width=600&format=pjpg" width="252" alt="Strikk og gensere" style="width:100%;max-width:252px;height:auto;margin:0 auto;"></a>
+        <a href="https://astridlund.no/collections/nordisk-genser" style="display:block;background:#3B302B;color:#FFFFFF;padding:10px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;letter-spacing:2px;text-decoration:none;max-width:232px;margin:0 auto;">STRIKK OG GENSERE</a>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- HVORFOR ASTRIDLUND -->
+  <tr><td class="px" style="padding:32px 50px 26px;">
+    <p style="margin:0 0 18px;text-align:center;font-size:22px;letter-spacing:1px;">HVORFOR VELGE ASTRIDLUND?</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+      <tr><td style="background:#3B302B;color:#FFFFFF;padding:11px 16px;">✓ &nbsp;Snitt som sitter pent og føles behagelige</td></tr>
+      <tr><td style="height:6px;line-height:6px;font-size:6px;">&nbsp;</td></tr>
+      <tr><td style="background:#3B302B;color:#FFFFFF;padding:11px 16px;">✓ &nbsp;Mange størrelser – fra S og oppover</td></tr>
+      <tr><td style="height:6px;line-height:6px;font-size:6px;">&nbsp;</td></tr>
+      <tr><td style="background:#3B302B;color:#FFFFFF;padding:11px 16px;">✓ &nbsp;Gratis frakt i hele Norge</td></tr>
+      <tr><td style="height:6px;line-height:6px;font-size:6px;">&nbsp;</td></tr>
+      <tr><td style="background:#3B302B;color:#FFFFFF;padding:11px 16px;">✓ &nbsp;Betal trygt med Vipps eller kort</td></tr>
+      <tr><td style="height:6px;line-height:6px;font-size:6px;">&nbsp;</td></tr>
+      <tr><td style="background:#3B302B;color:#FFFFFF;padding:11px 16px;">✓ &nbsp;14 dagers angrerett</td></tr>
+    </table>
+  </td></tr>
+
+  <!-- TIPS -->
+  <tr><td class="px" style="padding:0 40px 30px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+      <td style="background:#F3ECE3;padding:22px 26px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;">
+        <p style="margin:0 0 10px;font-family:Georgia,'Times New Roman',serif;font-size:20px;letter-spacing:1px;">TIPS FRA OSS</p>
+        <p style="margin:0 0 10px;">Usikker på størrelsen? <strong>Velg den største</strong> – de fleste plaggene våre er laget for en avslappet passform.</p>
+        <p style="margin:0;"><strong>14 dagers angrerett</strong> – passer det ikke, finner vi en løsning sammen.</p>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- TRYGGHET -->
+  <tr><td style="background:#F3ECE3;border-top:1px solid #E4D9CC;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1px;text-align:center;color:#2B2522;"><tr>
+      <td width="33%" style="padding:18px 6px;"><span style="font-size:20px;">🚚</span><br>GRATIS FRAKT</td>
+      <td width="34%" style="padding:18px 6px;border-left:1px solid #E4D9CC;border-right:1px solid #E4D9CC;"><span style="font-size:20px;">↺</span><br>14 DAGERS ANGRERETT</td>
+      <td width="33%" style="padding:18px 6px;"><span style="font-size:20px;">🔒</span><br>TRYGG BETALING</td>
+    </tr></table>
+  </td></tr>
+
+  <!-- FOOTER -->
+  <tr><td align="center" style="background:#3B302B;padding:26px 30px 30px;font-family:Arial,Helvetica,sans-serif;color:#E9DFD3;font-size:12px;line-height:20px;">
+    <p style="margin:0 0 10px;letter-spacing:1px;">HAR DU SPØRSMÅL?</p>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr>
+      <td style="background:#FFFFFF;"><a href="mailto:info@astridlund.no" style="display:inline-block;padding:9px 22px;font-size:12px;font-weight:bold;letter-spacing:2px;color:#2B2522;text-decoration:none;">KONTAKT OSS</a></td>
+    </tr></table>
+    <p style="margin:16px 0 6px;"><a href="https://astridlund.no/policies/refund-policy" style="color:#E9DFD3;">Retur og angrerett</a> &nbsp;|&nbsp; <a href="https://astridlund.no/policies/terms-of-service" style="color:#E9DFD3;">Kjøpsvilkår</a> &nbsp;|&nbsp; <a href="https://astridlund.no/policies/privacy-policy" style="color:#E9DFD3;">Personvern</a></p>
+    <p style="margin:0 0 6px;">Vi tar imot Vipps, Visa og Mastercard</p>
+    <p style="margin:0 0 6px;">© 2026 Astridlund · {{ organization.full_address }}</p>
+    <p style="margin:0;">{% web_view %} &nbsp;|&nbsp; {% manage_preferences %} &nbsp;|&nbsp; {% unsubscribe 'Avslutt abonnement' %}</p>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
